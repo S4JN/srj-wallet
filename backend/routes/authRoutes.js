@@ -3,7 +3,8 @@ const { loginController, registerController } = require("../controllers/authCont
 
 const router= express.Router()
 
-router.get("/login",loginController);
-router.get("/register", registerController);
+//inko post krna h na dada
+router.post("/login",loginController);
+router.post("/signup", registerController);
 
 module.exports = router;
