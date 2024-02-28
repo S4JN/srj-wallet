@@ -1,6 +1,7 @@
 const express = require("express");
 const testRoutes = require("./routes/testRoutes");
 const authRoutes = require("./routes/authRoutes");
+const userRoutes = require("./routes/userRoutes")
 const morgan = require("morgan")
 const cors = require("cors")
 const connectDB = require("./config/db");
@@ -14,7 +15,8 @@ app.use(cors());
 
 
 app.use("/api/v1/test", testRoutes);
-app.use("/api/v1/user",authRoutes)
+app.use("/api/v1/auth",authRoutes)
+app.use("/api/v1/user",userRoutes);
 
 
 const PORT = process.env.PORT || 8000;

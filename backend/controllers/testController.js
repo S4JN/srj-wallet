@@ -4,5 +4,11 @@ const testController = (req, res) => {
         success: true,
     });
 };
+const protectedController = (req, res) => {
+    res.status(200).send({
+        message: "test route",
+        success: true,
+    });
+};
 
-module.exports = { testController }
+module.exports = { testController, protectedController }
