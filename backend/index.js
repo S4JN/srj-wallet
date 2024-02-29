@@ -17,6 +17,7 @@ app.use(cors());
 app.use("/api/v1/test", testRoutes);
 app.use("/api/v1/auth",authRoutes)
 app.use("/api/v1/user",userRoutes);
+// app.use("/api/v1/accounts",accountRoutes);
 
 
 const PORT = process.env.PORT || 8000;

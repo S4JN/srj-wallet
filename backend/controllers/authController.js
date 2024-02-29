@@ -1,7 +1,8 @@
 const zod = require("zod");
 const User = require("../models/userSchema")
 const jwt = require("jsonwebtoken")
-const bcrypt = require("bcrypt")
+const bcrypt = require("bcrypt");
+const Account = require("../models/accountSchema");
 
 
 const signupBody = zod.object({
@@ -48,6 +49,14 @@ const registerController = async (req, res) => {
         })
 
         const userId = user._id;
+
+        //INITLIZING ACCOUNTS - Random balance
+        await Account.create({
+            userId,
+            balance: 1 + Math.random() * 10000
+        })
+
+
 
         const token = jwt.sign({
             userId
